@@ -10,7 +10,7 @@ source:
   sha256: bdbdc46c1927f172d9b9eae01ce38a6e94764324f39be7773daf6d3df94485bb  # [linux]
 
 build:
-  number: 1000
+  number: 1001
   skip: True  # [win]
 
 requirements:
@@ -33,7 +33,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Simple, fast, extensible JSON encoder/decoder for Python'
+  summary: 'The Time Zone Database (often called tz or zoneinfo)'
 
   description: |
     The Time Zone Database (often called tz or zoneinfo) contains
