@@ -1,16 +1,15 @@
-{% set name = "tzcode" %}
-{% set version = "2018g" %}
+{% set version = "2019a" %}
 
 package:
-  name: {{ name|lower }}
+  name: tzcode
   version: {{ version }}
 
 source:
-  url: https://data.iana.org/time-zones/releases/tzdb-{{version}}.tar.lz  # [linux]
-  sha256: bdbdc46c1927f172d9b9eae01ce38a6e94764324f39be7773daf6d3df94485bb  # [linux]
+  url: https://data.iana.org/time-zones/releases/tzdb-{{version}}.tar.lz
+  sha256: 16d10794dd8de8eb21abbf21e74020b5e1b0227ea1f094299b0b4467954eecc7
 
 build:
-  number: 1001
+  number: 1002
   skip: True  # [win]
 
 requirements:
@@ -18,15 +17,14 @@ requirements:
     - {{ compiler('c') }}
     - lzip
     - make
-    - wget  # [osx]
   host:
   run:
 
 test:
   commands:
-    - ${PREFIX}/bin/tzselect --help
-    - ${PREFIX}/bin/zdump --help
-    - ${PREFIX}/bin/zic --help
+    - tzselect --help
+    - zdump --help
+    - zic --help
 
 about:
   home: https://www.iana.org/time-zones
@@ -34,7 +32,6 @@ about:
   license_family: BSD
   license_file: LICENSE
   summary: 'The Time Zone Database (often called tz or zoneinfo)'
-
   description: |
     The Time Zone Database (often called tz or zoneinfo) contains
     code and data that represent the history of local time for many
@@ -46,3 +43,4 @@ about:
 extra:
   recipe-maintainers:
     - sodre
+    - ocefpaf
