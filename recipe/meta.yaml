@@ -1,4 +1,4 @@
-{% set version = "2020f" %}
+{% set version = "2021a" %}
 
 package:
   name: tzcode
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://data.iana.org/time-zones/releases/tzdb-{{ version }}.tar.lz
-  sha256: 6226b38b7434b66f2c5b730642c67b6b7cd42c035b8442e63e5b8cb5261ddfc5
+  sha256: 21bf125de7b0c486cb57f1ba61b39584c949b2e6cac0a03a6425435d9bff37d0
 
 build:
   number: 0
