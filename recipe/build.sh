@@ -10,8 +10,11 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
     CC=${CC_FOR_BUILD} \
     TOPDIR=${BUILD_PREFIX} \
     USRDIR="" \
+    ZICDIR="${BUILD_PREFIX}/bin" \
+    TZDIR="./share/zoneinfo" \
+    MANDIR="./man" \
+    TZDEFAULT="./etc/localtime" \
     install
-  mv ${BUILD_PREFIX}/sbin/zic ${BUILD_PREFIX}/bin
   popd
   MAKE_EXTRA_ARGS="zic=${BUILD_PREFIX}/bin/zic"
 fi
@@ -22,6 +25,8 @@ make -e \
   CC=${CC} \
   TOPDIR=${PREFIX} ${MAKE_EXTRA_ARGS:-} \
   USRDIR="" \
+  ZICDIR="${PREFIX}/bin" \
+  TZDIR="./share/zoneinfo" \
+  MANDIR="./man" \
+  TZDEFAULT="./etc/localtime" \
   install
-
-mv ${PREFIX}/sbin/zic ${PREFIX}/bin
