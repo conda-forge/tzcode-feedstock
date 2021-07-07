@@ -7,12 +7,13 @@ Package license: BSD-3-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/tzcode-feedstock/blob/master/LICENSE.txt)
 
-Summary: The Time Zone Database (often called tz or zoneinfo)
+Summary: The Time Zone Database (often called tz or zoneinfo) code
 
 Documentation: https://tools.ietf.org/html/rfc6557
 
 The Time Zone Database (often called tz or zoneinfo) contains
-code and data that represent the history of local time for many
+code (this package) and data (the tzdata package) that represent the
+history of local time for many
 representative locations around the globe. It is updated periodically
 to reflect changes made by political bodies to time zone boundaries,
 UTC offsets, and daylight-saving rules.
@@ -92,6 +93,7 @@ Installing `tzcode` from the `conda-forge` channel can be achieved by adding `co
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `tzcode` can be installed with:
