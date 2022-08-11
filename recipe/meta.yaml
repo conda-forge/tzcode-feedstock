@@ -7,8 +7,6 @@ package:
 source:
   url: https://data.iana.org/time-zones/releases/tzdb-{{ version }}.tar.lz
   sha256: ac7e86da284b303244c457337ff5a4d17a4617a25777c87946668a1705f7b7ec
-  patches:
-    - 0001-work-around-macos-awk-bug.patch
 
 build:
   number: 0
