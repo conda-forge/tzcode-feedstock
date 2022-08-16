@@ -6,7 +6,6 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
   mkdir for_build
   pushd for_build
   tar xvf ../tzdb-${PKG_VERSION}.tar --strip 1
-  patch -Np1 --binary -i ${RECIPE_DIR}/0001-work-around-macos-awk-bug.patch
   make -e \
     CC=${CC_FOR_BUILD} \
     TOPDIR=${BUILD_PREFIX} \
@@ -21,8 +20,6 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
 fi
 
 tar xvf tzdb-${PKG_VERSION}.tar --strip 1
-
-patch -Np1 --binary -i ${RECIPE_DIR}/0001-work-around-macos-awk-bug.patch
 
 make -e \
   CC=${CC} \
