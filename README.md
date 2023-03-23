@@ -1,11 +1,11 @@
-About tzcode
-============
+About tzcode-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/tzcode-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.iana.org/time-zones
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/tzcode-feedstock/blob/main/LICENSE.txt)
 
 Summary: The Time Zone Database (often called tz or zoneinfo) code
 
