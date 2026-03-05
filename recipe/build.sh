@@ -1,7 +1,5 @@
 set -exo pipefail
 
-lzip -d tzdb-${PKG_VERSION}.tar.lz
-
 if [[ $(uname) == Darwin ]]; then
   CFLAGS="$CFLAGS -DHAVE_GETRANDOM=0"
 fi
@@ -9,7 +7,7 @@ fi
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
   mkdir for_build
   pushd for_build
-  tar xvf ../tzdb-${PKG_VERSION}.tar --strip 1
+  tar xvf ../tzcode${PKG_VERSION}.tar.gz --strip 1
   make -e \
     CC=${CC_FOR_BUILD} \
     TOPDIR=${BUILD_PREFIX} \
@@ -23,7 +21,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
   MAKE_EXTRA_ARGS="zic=${BUILD_PREFIX}/bin/zic"
 fi
 
-tar xvf tzdb-${PKG_VERSION}.tar --strip 1
+tar xvf tzcode${PKG_VERSION}.tar.gz --strip 1
 
 make -e \
   CC=${CC} \
