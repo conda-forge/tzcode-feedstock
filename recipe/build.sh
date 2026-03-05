@@ -21,9 +21,9 @@ if [[ $(uname) == Darwin ]]; then
 fi
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
-  mkdir for_build
-  cp -a "${SOURCE_DIR}/." for_build/
-  pushd for_build
+  FOR_BUILD_DIR="$(mktemp -d)"
+  cp -a "${SOURCE_DIR}/." "${FOR_BUILD_DIR}/"
+  pushd "${FOR_BUILD_DIR}"
 
   # Keep data outputs out of the prefix while using upstream install logic.
   BUILD_TZDIR="${PWD}/zoneinfo"
@@ -41,6 +41,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
     install
 
   popd
+  rm -rf "${FOR_BUILD_DIR}"
   MAKE_EXTRA_ARGS="zic=${BUILD_PREFIX}/bin/zic"
 fi
 
