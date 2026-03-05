@@ -18,7 +18,6 @@ representative locations around the globe. It is updated periodically
 to reflect changes made by political bodies to time zone boundaries,
 UTC offsets, and daylight-saving rules.
 
-
 Current build status
 ====================
 
