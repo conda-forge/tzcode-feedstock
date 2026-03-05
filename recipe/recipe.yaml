@@ -1,38 +1,38 @@
-{% set version = "2026a" %}
+schema_version: 1
+
+context:
+  version: 2026a
 
 package:
   name: tzcode
-  version: {{ version }}
+  version: ${{ version }}
 
 source:
-  url: https://data.iana.org/time-zones/releases/tzdb-{{ version }}.tar.lz
+  url: https://data.iana.org/time-zones/releases/tzdb-${{ version }}.tar.lz
   sha256: 0913509a37f26b81bb6396018ad5cdf32065374ed36e82cceb61b2ee57a94b7c
 
 build:
   number: 0
-  skip: true  # [win]
+  skip: win
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
     - lzip
     - make
   host:
   run:
 
-test:
-  commands:
-    - tzselect --help
-    - zdump --help
-    - zic --help
-    # make sure we didn't install the data
-    - test ! -f "${PREFIX}/share/zoneinfo"
+tests:
+  - script:
+      - tzselect --help
+      - zdump --help
+      - zic --help
+      - test ! -f "${PREFIX}/share/zoneinfo"
 
 about:
-  home: https://www.iana.org/time-zones
   license: BSD-3-Clause
-  license_family: BSD
   license_file: LICENSE
   summary: The Time Zone Database (often called tz or zoneinfo) code
   description: |
@@ -42,7 +42,8 @@ about:
     representative locations around the globe. It is updated periodically
     to reflect changes made by political bodies to time zone boundaries,
     UTC offsets, and daylight-saving rules.
-  doc_url: https://tools.ietf.org/html/rfc6557
+  homepage: https://www.iana.org/time-zones
+  documentation: https://tools.ietf.org/html/rfc6557
 
 extra:
   recipe-maintainers:
