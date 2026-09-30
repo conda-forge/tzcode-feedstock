@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "2026d"
+  version: "2026e"
 
 package:
   name: tzcode
@@ -9,9 +9,9 @@ package:
 
 source:
   - url: https://data.iana.org/time-zones/releases/tzcode${{ version }}.tar.gz
-    sha256: 2f5c9f7fe29e6b8cb863583667884b8ce17b0a485355a054b591c6bdfcd81791
+    sha256: cc3d27ca2a0d8399504551b920970d80af83bfb9c216e8082a15491921935d54
   - url: https://data.iana.org/time-zones/releases/tzdata${{ version }}.tar.gz
-    sha256: 0cb2aa8e333c3dc049badc42a0c61f21987b8cd44e107fa900bad764aacc7767
+    sha256: b26882805f26aac59d5b222978e6580484b834ccdc98be89df2f05a6dc53a652
     target_directory: tzdata
 
 build:
